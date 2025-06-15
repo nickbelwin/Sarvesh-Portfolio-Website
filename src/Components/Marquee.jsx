@@ -1,0 +1,23 @@
+import React from 'react';
+import { MARQUEE_TEXT } from '../Constants/Constants';
+import { motion } from 'motion/react';
+const Marquee = () => {
+    return (
+        <div className=' mt-4 w-full bg-lime-300 text-black lg:py-6 mb-10'>
+            <div className='flex overflow-hidden whitespace-nowrap'>
+                {[...Array(2)].map((_, i)=>{
+                    return (
+                    <motion.h1
+                    initial={{ x: "-100%" }}
+                    animate={{ x: "0" }}
+                    transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+                    key={i} className='py-2 text-3xl font-bold leading-none tracking-tighter lg:text-7xl'>
+                        {MARQUEE_TEXT}
+                    </motion.h1>)
+                })}
+            </div>
+        </div>
+    );
+}
+
+export default Marquee;
